@@ -180,7 +180,7 @@ app.get("/api/health", (_, res) => res.json({ status: "ok" }));
 // ---------------------------------------------------------
 /**
  * Levanta el servidor Express en el puerto 4000 (local)
- * o el puerto asignado por la plataforma en producción (Vercel, Render, etc.)
+ * o el puerto asignado por la plataforma en producción en Render
  */
 const PORT = process.env.PORT || 4000;
 

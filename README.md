@@ -7,7 +7,7 @@
 Este proyecto corresponde al desarrollo de una **API modular para la gestión de una clínica**, creada como entrega final
 para la asignatura **Arquitectura de Software**. Se implementa un enfoque **SOA (Service-Oriented Architecture)** con
 servicios independientes que interactúan entre sí mediante **endpoints RESTful**.  
-El sistema incluye autenticación JWT, persistencia en base de datos (PostgreSQL mediante Supabase) y despliegue en Vercel.
+El sistema incluye autenticación JWT, persistencia en base de datos (PostgreSQL mediante Supabase) y despliegue en Render.
 
 ---
 
@@ -114,9 +114,9 @@ El video debe contener los siguientes puntos:
 
 ## ☁️ Despliegue
 
-El sistema esta desplegado en **Vercel** de forma gratuita.
+El sistema esta desplegado en **Render** de forma gratuita.
 
-https://api-clinica-modular.vercel.app/
+https://api-clinica-modular.onrender.com/
 
 ---
 
@@ -126,7 +126,7 @@ https://api-clinica-modular.vercel.app/
 - **Supabase (PostgreSQL)** — Base de datos en la nube.
 - **JWT (jsonwebtoken)** — Autenticación de usuarios.
 - **bcryptjs** — Cifrado de contraseñas.
-- **Vercel** — Despliegue gratuito del backend.
+- **Render** — Despliegue gratuito del backend.
 - **Postman** — Pruebas de endpoints REST.
 - **Swagger** - Documentación.
 

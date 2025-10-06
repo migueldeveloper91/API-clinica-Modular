@@ -13,7 +13,7 @@ const options = {
     servers: [
       { url: "http://localhost:4000", description: "Servidor local" },
       {
-        url: "https://api-clinica-modular.vercel.app/",
+        url: "https://api-clinica-modular.onrender.com/",
         description: "Servidor en producción",
       },
     ],
