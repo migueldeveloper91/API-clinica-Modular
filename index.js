@@ -186,6 +186,16 @@ const PORT = process.env.PORT || 4000;
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+app.get("/api/db-check", async (_, res) => {
+  try {
+    const { rows } = await pool.query("SELECT NOW()");
+    res.json({ ok: true, time: rows[0].now });
+  } catch (err) {
+    console.error("❌ Error conexión DB:", err);
+    res.status(500).json({ ok: false, error: err.message });
+  }
+});
+
 app.listen(PORT, () =>
   console.log(`✅ API Clínica modular corriendo en puerto ${PORT}`)
 );
