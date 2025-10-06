@@ -58,6 +58,11 @@ Tablas principales:
 
 ## 🌐 Endpoints Principales
 
+
+### **Estado del servicio**
+
+- `GET /api/health`
+
 ### **Autenticación**
 
 - `POST /api/auth/login` — Inicia sesión y devuelve token JWT.
