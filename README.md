@@ -128,6 +128,7 @@ https://api-clinica-modular.vercel.app/
 - **bcryptjs** — Cifrado de contraseñas.
 - **Vercel** — Despliegue gratuito del backend.
 - **Postman** — Pruebas de endpoints REST.
+- **Swagger** - Documentación.
 
 ---
 
