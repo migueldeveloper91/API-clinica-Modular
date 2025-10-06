@@ -107,6 +107,9 @@ El video debe contener los siguientes puntos:
 
 El sistema esta desplegado en **Vercel** de forma gratuita.
 
+
+https://api-clinica-modular.vercel.app/
+
 ---
 
 ## 💻 Tecnologías Utilizadas
