@@ -1,3 +1,63 @@
+/**
+ * @swagger
+ * /api/laboratorio/ordenes:
+ *   post:
+ *     summary: Registra una orden de examen
+ *     tags: [Laboratorio]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               paciente_id:
+ *                 type: integer
+ *               examen:
+ *                 type: string
+ *               fecha:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Orden creada correctamente
+ *   get:
+ *     summary: Lista todas las órdenes de laboratorio
+ *     tags: [Laboratorio]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Lista de órdenes
+ */
+
+/**
+ * @swagger
+ * /api/laboratorio/resultados:
+ *   post:
+ *     summary: Guarda resultados de exámenes
+ *     tags: [Laboratorio]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               orden_id:
+ *                 type: integer
+ *               resultado:
+ *                 type: string
+ *               fecha:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Resultado registrado correctamente
+ */
+
 import express from "express";
 import { pool } from "../db/pool.js";
 import { verifyToken } from "../middleware/auth.js";

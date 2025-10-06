@@ -1,3 +1,39 @@
+/**
+ * @swagger
+ * /api/pacientes:
+ *   get:
+ *     summary: Lista todos los pacientes
+ *     tags: [Pacientes]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Lista de pacientes obtenida exitosamente
+ *   post:
+ *     summary: Crea un nuevo paciente
+ *     tags: [Pacientes]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nombre:
+ *                 type: string
+ *               documento:
+ *                 type: string
+ *               fechaNacimiento:
+ *                 type: string
+ *               direccion:
+ *                 type: string
+ *               telefono:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Paciente creado correctamente
+ */
+
 import express from "express";
 import { pool } from "../db/pool.js";
 import { verifyToken } from "../middleware/auth.js";

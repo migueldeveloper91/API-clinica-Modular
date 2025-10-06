@@ -25,6 +25,7 @@ El API Gateway central (`index.js`) coordina las peticiones y la autenticación.
 ```bash
 clinica-api/
 ├─ index.js
+├─ swagger.js
 ├─ .env
 ├─ package.json
 ├─ db/
@@ -58,6 +59,9 @@ Tablas principales:
 
 ## 🌐 Endpoints Principales
 
+### **Documentación**
+
+- `GET /api/docs`
 
 ### **Estado del servicio**
 
@@ -111,7 +115,6 @@ El video debe contener los siguientes puntos:
 ## ☁️ Despliegue
 
 El sistema esta desplegado en **Vercel** de forma gratuita.
-
 
 https://api-clinica-modular.vercel.app/
 

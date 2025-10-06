@@ -1,3 +1,94 @@
+/**
+ * @swagger
+ * /api/farmacia/medicamentos:
+ *   post:
+ *     summary: Crea un medicamento
+ *     tags: [Farmacia]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - id
+ *               - nombre
+ *             properties:
+ *               id:
+ *                 type: string
+ *                 description: ID único del medicamento (ej. "MED123")
+ *               nombre:
+ *                 type: string
+ *               stock:
+ *                 type: integer
+ *                 description: Cantidad disponible
+ *               precio:
+ *                 type: integer
+ *                 description: Precio del medicamento
+ *     responses:
+ *       201:
+ *         description: Medicamento creado
+ *
+ *   get:
+ *     summary: Lista todos los medicamentos
+ *     tags: [Farmacia]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Lista de medicamentos
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                   nombre:
+ *                     type: string
+ *                   stock:
+ *                     type: integer
+ *                   precio:
+ *                     type: integer
+ */
+
+/**
+ * @swagger
+ * /api/farmacia/dispensaciones:
+ *   post:
+ *     summary: Registra una dispensación a un paciente
+ *     tags: [Farmacia]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - paciente_id
+ *               - medicamento_id
+ *               - cantidad
+ *             properties:
+ *               paciente_id:
+ *                 type: integer
+ *                 description: ID del paciente
+ *               medicamento_id:
+ *                 type: string
+ *                 description: ID del medicamento
+ *               cantidad:
+ *                 type: integer
+ *                 description: Cantidad dispensada
+ *     responses:
+ *       201:
+ *         description: Dispensación registrada
+ */
+
 import express from "express";
 import { pool } from "../db/pool.js";
 import { verifyToken } from "../middleware/auth.js";

@@ -14,6 +14,26 @@
  * También implementa autenticación mediante JWT.
  * ---------------------------------------------------------
  */
+
+/**
+ * @swagger
+ * /api/health:
+ *   get:
+ *     summary: Estado del servicio
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Servicio activo
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "ok"
+ */
+
 import bcrypt from "bcryptjs";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -26,10 +46,9 @@ import facturacionRoutes from "./routes/facturacion.js";
 import farmaciaRoutes from "./routes/farmacia.js";
 import laboratorioRoutes from "./routes/laboratorio.js";
 import pacientesRoutes from "./routes/pacientes.js";
-
+import { swaggerSpec, swaggerUi } from "./swagger.js";
 // Conexión a la base de datos (Postgres en Supabase)
 import { pool } from "./db/pool.js";
-console.log("🔌 Conectando a:", process.env.DATABASE_URL);
 
 // Inicialización de la app Express
 const app = express();
@@ -59,6 +78,38 @@ app.use(bodyParser.json());
  * 4. Si es correcta, genera y devuelve un token JWT.
  * 5. Si no, devuelve un error HTTP 401.
  */
+
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Inicia sesión y devuelve un token JWT
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               user:
+ *                 type: string
+ *               pass:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Inicio de sesión exitoso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token:
+ *                   type: string
+ *       401:
+ *         description: Usuario o contraseña incorrectos
+ */
+
 app.post("/api/auth/login", async (req, res) => {
   const { user, pass } = req.body;
 
@@ -132,6 +183,9 @@ app.get("/api/health", (_, res) => res.json({ status: "ok" }));
  * o el puerto asignado por la plataforma en producción (Vercel, Render, etc.)
  */
 const PORT = process.env.PORT || 4000;
+
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 app.listen(PORT, () =>
   console.log(`✅ API Clínica modular corriendo en puerto ${PORT}`)
 );
