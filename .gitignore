@@ -1,0 +1,43 @@
+# Dependencias
+/node_modules
+/npm-debug.log
+.npm/
+.yarn/
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
+/pnpm-debug.log*
+/pnpm-lock.yaml
+
+# Compilación y Salida
+/dist
+/build
+/temp
+/tmp
+
+# Archivos de Entorno y Configuración
+.env
+.env.*
+config.js
+config.json
+
+# Logs
+logs
+*.log
+
+# Archivos de OS/IDE
+.DS_Store
+.idea/
+.vscode/
+Thumbs.db
+
+# Cobertura de Pruebas
+/coverage
+
+# Archivos ignorados por npm/yarn/pnpm
+# (No necesarios si ya se usa /node_modules, pero útil para claridad)
+package-lock.json
+yarn.lock
+
+# Archivos de caché
+.cache
